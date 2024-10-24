@@ -1,3 +1,5 @@
+package domain;
+
 public enum LineView {
     CONNECTION(true,"-----"),
     DISCONNECTION(false,"     ");
