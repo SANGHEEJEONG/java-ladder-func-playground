@@ -8,4 +8,8 @@ public class Line {
     public Line(List<Boolean> points) {
         this.points = points;
     }
+
+    public List<Boolean> getLine(){
+        return points;
+    }
 }
