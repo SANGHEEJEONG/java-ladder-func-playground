@@ -9,7 +9,6 @@ public class LadderGenerator {
     private final static int HEIGHT = 4;
     private final static int WIDTH = HEIGHT - 1;
 
-
     private boolean randomTrueOrFalse() {
         return Math.random() < 0.5;         // 0.0(포함) - 1.0(미포함) 사이의 랜덤한 실수 반환
     }
@@ -23,11 +22,22 @@ public class LadderGenerator {
         return randomTrueOrFalse();
     }
 
-    private void createLine() {
+    private Line createLine() {
         List<Boolean> points = new ArrayList<>(4);
 
         for (int i = 0; i < WIDTH; i++) {
             points.add(createValue(points, i));
         }
+
+        return new Line(points);
+    }
+
+    private Ladder createLadder(){
+        List<Line> lines = new ArrayList<>(HEIGHT);
+        for(int i = 0; i<HEIGHT; i++){
+            lines.add(createLine());
+        }
+
+        return new Ladder(lines);
     }
 }

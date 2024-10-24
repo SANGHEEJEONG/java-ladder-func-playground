@@ -1,4 +1,4 @@
-package domain;
+package view;
 
 public enum LineView {
     CONNECTION(true,"-----"),
