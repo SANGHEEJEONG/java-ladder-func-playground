@@ -4,8 +4,9 @@ import java.util.List;
 import static java.lang.Boolean.TRUE;
 
 public class LadderGenerator {
-    private final static int WIDTH = 3;
     private final static int HEIGHT = 4;
+    private final static int WIDTH = HEIGHT - 1;
+
 
     private boolean randomTrueOrFalse() {
         return Math.random() < 0.5;         // 0.0(포함) - 1.0(미포함) 사이의 랜덤한 실수 반환
