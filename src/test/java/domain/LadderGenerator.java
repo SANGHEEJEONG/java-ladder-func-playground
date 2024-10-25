@@ -6,8 +6,6 @@ import java.util.List;
 import static java.lang.Boolean.TRUE;
 
 public class LadderGenerator {
-    private final static int HEIGHT = 4;
-    private final static int WIDTH = HEIGHT - 1;
 
     private boolean randomTrueOrFalse() {
         return Math.random() < 0.5;         // 0.0(포함) - 1.0(미포함) 사이의 랜덤한 실수 반환
@@ -22,20 +20,20 @@ public class LadderGenerator {
         return randomTrueOrFalse();
     }
 
-    private Line createLine() {
+    private Line createLine(int width) {
         List<Boolean> points = new ArrayList<>(4);
 
-        for (int i = 0; i < WIDTH; i++) {
+        for (int i = 0; i < width - 1; i++) {
             points.add(createValue(points, i));
         }
 
         return new Line(points);
     }
 
-    public Ladder createLadder(){
-        List<Line> lines = new ArrayList<>(HEIGHT);
-        for(int i = 0; i<HEIGHT; i++){
-            lines.add(createLine());
+    public Ladder createLadder(int width, int height) {
+        List<Line> lines = new ArrayList<>(height);
+        for (int i = 0; i < height; i++) {
+            lines.add(createLine(width));
         }
 
         return new Ladder(lines);
