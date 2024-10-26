@@ -5,20 +5,11 @@ import java.util.List;
 
 public class LadderGame {
 
-    private int decideWhereToGo(Line line, int ladderOrder) {
-        if (ladderOrder != 0)
-            ladderOrder = line.checkGoToRight(ladderOrder);
-
-        if (ladderOrder != line.getSize() - 1)
-            ladderOrder = line.checkGoToLeft(ladderOrder);
-
-        return ladderOrder;
-    }
 
     private int moveEachLadder(Ladder ladder, int ladderOrder) {
         int result = ladderOrder;
         for (Line line : ladder.getLadder()) {
-            result = decideWhereToGo(line, result);
+            result = line.checkWhereToGo(result);
         }
         return result;
     }

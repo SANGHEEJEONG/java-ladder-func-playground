@@ -9,27 +9,19 @@ public class Line {
         this.points = points;
     }
 
-    public int checkGoToRight(int ladderOrder) {
+    public int checkWhereToGo(int ladderOrder) {
         int right = ladderOrder + 1;
-        if (points.get(right))
+        if (ladderOrder < points.size() && points.get(ladderOrder))
             return right;
 
-        return ladderOrder;
-    }
-
-    public int checkGoToLeft(int ladderOrder) {
         int left = ladderOrder - 1;
-        if (points.get(left))
+        if (ladderOrder != 0 && points.get(left))
             return left;
 
         return ladderOrder;
     }
 
-    public List<Boolean> getLine(){
+    public List<Boolean> getLine() {
         return points;
-    }
-
-    public int getSize(){
-        return points.size();
     }
 }
