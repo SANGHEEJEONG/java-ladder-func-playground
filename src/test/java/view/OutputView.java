@@ -23,6 +23,19 @@ public class OutputView {
         System.out.println("|");
     }
 
+    public static void printPlayers(List<String> names) {
+        for (String name : names) {
+            System.out.print(name);
+        }
+    }
+
+    public static void printKindOfResults(List<String> kindOfResults) {
+        for (String kind : kindOfResults) {
+            System.out.print(kind);
+        }
+        System.out.println();
+    }
+
     public static void drawLadder(Ladder Ladder) {
         System.out.println("\n사다리 결과\n");
         for (Line lines : Ladder.getLadder()) {
