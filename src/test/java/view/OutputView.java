@@ -4,6 +4,7 @@ import domain.Ladder;
 import domain.Line;
 
 import java.util.List;
+import java.util.Map;
 
 import static java.lang.Boolean.TRUE;
 
@@ -24,9 +25,12 @@ public class OutputView {
     }
 
     public static void printPlayers(List<String> names) {
+        System.out.println("\n사다리 결과\n");
+        System.out.println();
         for (String name : names) {
             System.out.print(name);
         }
+        System.out.println();
     }
 
     public static void printKindOfResults(List<String> kindOfResults) {
@@ -37,16 +41,26 @@ public class OutputView {
     }
 
     public static void drawLadder(Ladder Ladder) {
-        System.out.println("\n사다리 결과\n");
         for (Line lines : Ladder.getLadder()) {
             drawLine(lines);
         }
     }
 
-    public static void printAllResult(List<Integer> result) {
+    public static void printSelectedResult(String viewerName, Map<String, String> resultMap) {
         System.out.println("\n실행결과");
-        for (int i = 0; i < result.size(); i++) {
-            System.out.println(i + " -> " + result.get(i));
-        }
+        System.out.println(resultMap.get(viewerName));
     }
+
+    public static void printResult(Map<String, String> resultMap, String viewerName) {
+        System.out.println("\n실행결과");
+
+        if ("all".equals(viewerName)) {
+            resultMap.forEach((player, result) -> System.out.println(player + " -> " + result));
+            return;
+        }
+
+        String result = resultMap.getOrDefault(viewerName, "존재하지 않는 플레이어입니다.");
+        System.out.println(result);
+    }
+
 }

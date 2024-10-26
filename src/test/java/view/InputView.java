@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class InputView {
     private static final Scanner input = new Scanner(System.in);
 
-    public List<String> splitString(String string) {
+    public static List<String> splitString(String string) {
         return Arrays.asList(string.split(","));
     }
 
