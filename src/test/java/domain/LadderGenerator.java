@@ -32,6 +32,7 @@ public class LadderGenerator {
 
     public Ladder createLadder(int width, int height) {
         List<Line> lines = new ArrayList<>(height);
+
         for (int i = 0; i < height; i++) {
             lines.add(createLine(width));
         }

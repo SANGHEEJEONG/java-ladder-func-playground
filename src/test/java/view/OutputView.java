@@ -21,6 +21,7 @@ public class OutputView {
     }
 
     public static void drawLadder(Ladder Ladder){
+        System.out.println("실행결과");
         for(Line lines : Ladder.getLadder()){
             drawLine(lines);
         }
