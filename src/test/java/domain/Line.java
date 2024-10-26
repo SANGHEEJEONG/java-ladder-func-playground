@@ -12,15 +12,23 @@ public class Line {
     }
 
     public int checkWhereToGo(int ladderOrder) {
-        int right = ladderOrder + 1;
-        if (ladderOrder < points.size() && points.get(ladderOrder) == TRUE)
-            return right;
+        if (canMoveRight(ladderOrder)) {
+            return ++ladderOrder;
+        }
 
-        int left = ladderOrder - 1;
-        if (ladderOrder != 0 && points.get(left) == TRUE)
-            return left;
+        if (canMoveLeft(ladderOrder)) {
+            return --ladderOrder;
+        }
 
         return ladderOrder;
+    }
+
+    private boolean canMoveRight(int ladderOrder) {
+        return (ladderOrder < points.size()) && (points.get(ladderOrder) == TRUE);
+    }
+
+    private boolean canMoveLeft(int ladderOrder) {
+        return (ladderOrder != 0) && (points.get(ladderOrder - 1) == TRUE);
     }
 
     public List<Boolean> getLine() {
