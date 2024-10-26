@@ -26,7 +26,7 @@ public class LadderGame {
     public List<Integer> runGame(Ladder ladder, int width) {
         List<Integer> result = new ArrayList<>(width);
         for (int i = 0; i < width; i++) {
-            moveEachLadder(ladder, i);
+            result.add(moveEachLadder(ladder, i));
         }
         return result;
     }
