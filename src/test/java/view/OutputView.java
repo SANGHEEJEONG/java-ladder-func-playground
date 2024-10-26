@@ -24,13 +24,14 @@ public class OutputView {
     }
 
     public static void drawLadder(Ladder Ladder) {
-        System.out.println("실행결과");
+        System.out.println("\n사다리 결과\n");
         for (Line lines : Ladder.getLadder()) {
             drawLine(lines);
         }
     }
 
     public static void printAllResult(List<Integer> result) {
+        System.out.println("\n실행결과");
         for (int i = 0; i < result.size(); i++) {
             System.out.println(i + " -> " + result.get(i));
         }
