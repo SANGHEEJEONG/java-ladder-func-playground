@@ -1,10 +1,10 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class LadderGame {
-
 
     private int moveEachLadder(Ladder ladder, int ladderOrder) {
         int result = ladderOrder;
@@ -21,4 +21,5 @@ public class LadderGame {
         }
         return result;
     }
+
 }
