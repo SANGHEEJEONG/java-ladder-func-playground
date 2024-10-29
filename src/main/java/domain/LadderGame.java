@@ -5,7 +5,7 @@ import java.util.List;
 
 public class LadderGame {
 
-    public List<Player> createPlayer(List<String> playerNames){
+    public List<Player> createPlayer(List<String> playerNames) {
         List<Player> players = new ArrayList<>();
 
         for (int i = 0; i < playerNames.size(); i++) {
@@ -27,15 +27,11 @@ public class LadderGame {
     }
 
     private void moveEachPlayer(Ladder ladder, Player player) {
-        for (Line line : ladder.getLadder()) {
-            movePlayer(line,player);
-        }
+        ladder.getLadder().forEach(line -> movePlayer(line, player));
     }
 
     public void runGame(Ladder ladder, Players players) {
-        for (Player player: players.getPlayers()) {
-            moveEachPlayer(ladder, player);
-        }
+        players.getPlayers().forEach(player -> moveEachPlayer(ladder,player));
     }
 
 }
