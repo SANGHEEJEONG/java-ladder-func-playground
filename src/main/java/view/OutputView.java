@@ -2,9 +2,10 @@ package view;
 
 import domain.Ladder;
 import domain.Line;
+import domain.Player;
+import domain.Players;
 
 import java.util.List;
-import java.util.Map;
 
 import static java.lang.Boolean.TRUE;
 
@@ -46,21 +47,32 @@ public class OutputView {
         }
     }
 
-    public static void printSelectedResult(String viewerName, Map<String, String> resultMap) {
-        System.out.println("\n실행결과");
-        System.out.println(resultMap.get(viewerName));
+    private static void printAllResult(Players players, List<String> kindOfResults) {
+        for (Player player : players.getPlayers()) {
+            System.out.println(player.getName() + " :" + kindOfResults.get(player.getPosition()));
+        }
     }
 
-    public static void printResult(Map<String, String> resultMap, String viewerName) {
+    private static int findViewerPosition(Players players, String viewerName){
+        return players.getPlayers().stream()
+                .filter(player -> player.getName().equals(viewerName))
+                .map(Player::getPosition)
+                .findFirst()
+                .orElse(-1);
+    }
+
+    public static void printResult(Players players, List<String> kindOfResults) {
+        final String viewerName = InputView.inputViewerName();
+
         System.out.println("\n실행결과");
 
         if ("all".equals(viewerName)) {
-            resultMap.forEach((player, result) -> System.out.println(player + " -> " + result));
+            printAllResult(players, kindOfResults);
             return;
         }
 
-        String result = resultMap.getOrDefault(viewerName, "존재하지 않는 플레이어입니다.");
-        System.out.println(result);
+        int result = findViewerPosition(players,viewerName);
+        System.out.println(kindOfResults.get(result));
     }
 
 }
