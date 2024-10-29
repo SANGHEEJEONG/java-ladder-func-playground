@@ -11,12 +11,10 @@ public class Player {
 
     public void moveLeft(){
         position--;
-        System.out.println(getName()+getPosition());
     }
 
     public void moveRight(){
         position++;
-        System.out.println(getName()+getPosition());
     }
 
     public String getName(){

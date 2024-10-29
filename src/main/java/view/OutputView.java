@@ -10,6 +10,13 @@ import java.util.List;
 import static java.lang.Boolean.TRUE;
 
 public class OutputView {
+
+    public static void printPlayers(List<String> names) {
+        System.out.println("\n사다리 결과\n");
+        names.forEach(System.out::print);
+        System.out.println();
+    }
+
     private static String changeValueToView(Boolean point) {
         if (point == TRUE)
             return "-----";
@@ -25,13 +32,10 @@ public class OutputView {
         System.out.println("|");
     }
 
-    public static void printPlayers(List<String> names) {
-        System.out.println("\n사다리 결과\n");
-        System.out.println();
-        for (String name : names) {
-            System.out.print(name);
+    public static void drawLadder(Ladder Ladder) {
+        for (Line lines : Ladder.getLadder()) {
+            drawLine(lines);
         }
-        System.out.println();
     }
 
     public static void printKindOfResults(List<String> kindOfResults) {
@@ -41,15 +45,9 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void drawLadder(Ladder Ladder) {
-        for (Line lines : Ladder.getLadder()) {
-            drawLine(lines);
-        }
-    }
-
-    private static void printAllResult(Players players, List<String> kindOfResults) {
+    public static void printAllResult(Players players, List<String> kindOfResults) {
         for (Player player : players.getPlayers()) {
-            System.out.println(player.getName() + " :" + kindOfResults.get(player.getPosition()));
+            System.out.println(player.getName() + " : " + kindOfResults.get(player.getPosition()));
         }
     }
 

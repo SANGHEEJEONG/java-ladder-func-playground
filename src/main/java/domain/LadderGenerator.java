@@ -14,7 +14,7 @@ public class LadderGenerator {
     }
 
     private boolean createValue(List<Boolean> line, int index) {
-        if (index != 0 && line.get(index - 1) == TRUE)    // 이전 값이 True면 false 반환
+        if (index != 0 && line.get(index - 1) == TRUE)    // 이전 값이 true 면 false 반환
             return false;
 
         return randomTrueOrFalse();
