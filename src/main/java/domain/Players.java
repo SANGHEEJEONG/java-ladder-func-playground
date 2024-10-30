@@ -20,7 +20,7 @@ public class Players {
         }
     }
 
-    public List<Player> createPlayer(List<String> playerNames) {
+    private List<Player> createPlayer(List<String> playerNames) {
         List<Player> players = new ArrayList<>();
         for (int i = 0; i < playerNames.size(); i++) {
             players.add(new Player(new Name(playerNames.get(i)), new Position(i)));

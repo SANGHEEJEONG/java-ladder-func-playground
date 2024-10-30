@@ -24,12 +24,15 @@ public class InputView {
     public static int inputHeight() {
         System.out.println("최대 사다리 높이는 몇 개인가요?");
         int height = input.nextInt();
+        InputException.validateHeightSize(height);
         input.nextLine();
         return height;
     }
 
     public static String inputViewerName() {
         System.out.println("\n결과를 보고 싶은 사람은?");
-        return input.nextLine();
+        String viewerName =  input.nextLine();
+        InputException.validateViewerNameNotBlank(viewerName);
+        return viewerName;
     }
 }
