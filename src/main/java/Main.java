@@ -16,7 +16,7 @@ public class Main {
 
         // 플레이어 생성
         final List<String> playerNames = InputView.splitString(InputView.inputNames());
-        final Players players = new Players(ladderGame.createPlayer(playerNames));
+        final Players players = new Players(playerNames);
 
         // 실행결과 생성
         final List<String> kindOfResults = InputView.splitString(InputView.inputLadderResults());
