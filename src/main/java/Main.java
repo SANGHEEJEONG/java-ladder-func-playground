@@ -20,14 +20,14 @@ public class Main {
 
         // 실행결과 생성
         final List<String> kindOfResults = InputView.splitString(InputView.inputLadderResults());
-        final ResultTypes resultTypes = new ResultTypes(kindOfResults,players.getPlayersSize());
+        final ResultTypes resultTypes = new ResultTypes(kindOfResults, players.getPlayersSize());
 
         // 사다리 생성
         final int width = players.getPlayersSize();
         final int height = InputView.inputHeight();
 
         final LadderGenerator ladderGenerator = new LadderGenerator();
-        final Ladder ladder = ladderGenerator.createLadder(width,height);
+        final Ladder ladder = ladderGenerator.createLadder(width, height);
 
         // 사다리 그리기
         OutputView.printPlayers(playerNames);
@@ -35,9 +35,9 @@ public class Main {
         OutputView.printResultTypes(resultTypes.getResultTypes());
 
         // 사다리 게임 시작
-        ladderGame.runGame(ladder,players);
+        ladderGame.runGame(ladder, players);
 
         // 결과 출력
-        OutputView.printResult(players,resultTypes.getResultTypes());
+        OutputView.printResult(players, resultTypes.getResultTypes());
     }
 }
