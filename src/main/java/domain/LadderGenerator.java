@@ -7,18 +7,18 @@ import static java.lang.Boolean.TRUE;
 
 public class LadderGenerator {
 
-    private boolean randomTrueOrFalse() {
+    public boolean randomTrueOrFalse() {
         return Math.random() < 0.5;         // 0.0(포함) - 1.0(미포함) 사이의 랜덤한 실수 반환
     }
 
-    private boolean createValue(List<Boolean> line, int index) {
+    public boolean createValue(List<Boolean> line, int index) {
         if (index != 0 && line.get(index - 1) == TRUE)    // 이전 값이 true 면 false 반환
             return false;
 
         return randomTrueOrFalse();
     }
 
-    private Line createLine(int width) {
+    public Line createLine(int width) {
         List<Boolean> points = new ArrayList<>();
         for (int i = 0; i < width - 1; i++) {
             points.add(createValue(points, i));

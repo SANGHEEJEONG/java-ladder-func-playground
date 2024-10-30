@@ -13,7 +13,7 @@ public class LadderGame {
         }
     }
 
-    private void moveEachPlayer(Ladder ladder, Player player) {
+    public void moveEachPlayer(Ladder ladder, Player player) {
         ladder.getLadder().forEach(line -> movePlayer(line, player));
     }
 
