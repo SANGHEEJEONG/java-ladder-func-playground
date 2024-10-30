@@ -4,24 +4,24 @@ public class Player {
     private final String name;
     private int position;
 
-    public Player(String name,int position) {
+    public Player(String name, int position) {
         this.name = name;
         this.position = position;
     }
 
-    public void moveLeft(){
+    public void moveLeft() {
         position--;
     }
 
-    public void moveRight(){
+    public void moveRight() {
         position++;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return position;
     }
 }

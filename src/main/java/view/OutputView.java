@@ -11,6 +11,7 @@ import static java.lang.Boolean.TRUE;
 
 public class OutputView {
 
+    // 플레이어 이름 출력
     public static void printPlayers(List<String> names) {
         System.out.println("\n사다리 결과\n");
         names.forEach(System.out::print);
@@ -25,23 +26,18 @@ public class OutputView {
     }
 
     private static void drawLine(Line line) {
-        for (Boolean point : line.getLine()) {
-            System.out.print("|");
-            System.out.print(changeValueToView(point));
-        }
+        line.getLine().forEach(point -> System.out.print("|" + changeValueToView(point)));
         System.out.println("|");
     }
 
-    public static void drawLadder(Ladder Ladder) {
-        for (Line lines : Ladder.getLadder()) {
-            drawLine(lines);
-        }
+    // 사다리 출력
+    public static void drawLadder(Ladder ladder) {
+        ladder.getLadder().forEach(OutputView::drawLine);
     }
 
+    // 결과 종류 출력
     public static void printKindOfResults(List<String> kindOfResults) {
-        for (String kind : kindOfResults) {
-            System.out.print(kind);
-        }
+        kindOfResults.forEach(System.out::print);
         System.out.println();
     }
 
@@ -51,6 +47,7 @@ public class OutputView {
         }
     }
 
+    // 보고 싶은 사다리 결과 출력
     public static void printResult(Players players, List<String> kindOfResults) {
         String viewerName = InputView.inputViewerName();
 

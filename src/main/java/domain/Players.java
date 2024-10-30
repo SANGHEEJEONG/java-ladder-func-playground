@@ -17,11 +17,11 @@ public class Players {
                 .orElseThrow(() -> new NoSuchElementException("플레이어 이름 '" + viewerName + "' 이 존재하지 않습니다."));
     }
 
-    public List<Player> getPlayers(){
+    public List<Player> getPlayers() {
         return players;
     }
 
-    public int getPlayersSize(){
+    public int getPlayersSize() {
         return players.size();
     }
 }
