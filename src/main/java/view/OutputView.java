@@ -51,16 +51,8 @@ public class OutputView {
         }
     }
 
-    private static int findViewerPosition(Players players, String viewerName){
-        return players.getPlayers().stream()
-                .filter(player -> player.getName().equals(viewerName))
-                .map(Player::getPosition)
-                .findFirst()
-                .orElse(-1);
-    }
-
     public static void printResult(Players players, List<String> kindOfResults) {
-        final String viewerName = InputView.inputViewerName();
+        String viewerName = InputView.inputViewerName();
 
         System.out.println("\n실행결과");
 
@@ -69,8 +61,8 @@ public class OutputView {
             return;
         }
 
-        int result = findViewerPosition(players,viewerName);
-        System.out.println(kindOfResults.get(result));
+        Player player = players.findByName(viewerName);
+        System.out.println(kindOfResults.get(player.getPosition()));
     }
 
 }
