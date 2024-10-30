@@ -4,6 +4,7 @@ import domain.Ladder;
 import domain.Line;
 import domain.Player;
 import domain.Players;
+import domain.ResultTypes;
 
 import java.util.List;
 
@@ -36,30 +37,30 @@ public class OutputView {
     }
 
     // 결과 종류 출력
-    public static void printKindOfResults(List<String> kindOfResults) {
-        kindOfResults.forEach(System.out::print);
+    public static void printResultTypes(List<String> resultTypes) {
+        resultTypes.forEach(System.out::print);
         System.out.println();
     }
 
-    public static void printAllResult(Players players, List<String> kindOfResults) {
+    public static void printAllResult(Players players, List<String> resultTypes) {
         for (Player player : players.getPlayers()) {
-            System.out.println(player.getName() + " : " + kindOfResults.get(player.getPosition()));
+            System.out.println(player.getName() + " : " + resultTypes.get(player.getPosition()));
         }
     }
 
     // 보고 싶은 사다리 결과 출력
-    public static void printResult(Players players, List<String> kindOfResults) {
+    public static void printResult(Players players, List<String> resultTypes) {
         String viewerName = InputView.inputViewerName();
 
         System.out.println("\n실행결과");
 
         if ("all".equals(viewerName)) {
-            printAllResult(players, kindOfResults);
+            printAllResult(players, resultTypes);
             return;
         }
 
         Player player = players.findByName(viewerName);
-        System.out.println(kindOfResults.get(player.getPosition()));
+        System.out.println(resultTypes.get(player.getPosition()));
     }
 
 }
