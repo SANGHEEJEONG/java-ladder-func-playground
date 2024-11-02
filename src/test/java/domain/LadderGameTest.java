@@ -30,7 +30,7 @@ public class LadderGameTest {
 
     @Test
     public void 플레이어는_오른쪽으로_이동할_수_있다() {
-        player = new Player(new Name("Test"), new Position(0));
+        player = new Player(new PlayerName("Test"), new Position(0));
 
         ladderGame.movePlayer(lineRight, player);  // 첫 번째 줄에서 오른쪽으로 이동
 
@@ -39,7 +39,7 @@ public class LadderGameTest {
 
     @Test
     public void 플레이어는_왼쪽으로_이동할_수_있다() {
-        player = new Player(new Name("Test"), new Position(1));
+        player = new Player(new PlayerName("Test"), new Position(1));
 
         ladderGame.movePlayer(lineLeft, player);  // 두 번째 줄에서 왼쪽으로 이동
 
@@ -48,7 +48,7 @@ public class LadderGameTest {
 
     @Test
     public void 플레이어는_이동하지_않을_수_있다() {
-        player = new Player(new Name("Test"), new Position(2));
+        player = new Player(new PlayerName("Test"), new Position(2));
 
         ladderGame.movePlayer(lineNone, player);  // 이동 불가능한 줄에서 시도
 
@@ -57,7 +57,7 @@ public class LadderGameTest {
 
     @Test
     public void 플레이어는_각_라인을_타고_최종_위치에_도달한다() {
-        player = new Player(new Name("Test"), new Position(0));
+        player = new Player(new PlayerName("Test"), new Position(0));
 
         ladderGame.moveEachPlayer(ladder, player);  // 각 라인에 대해 이동
 

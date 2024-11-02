@@ -8,19 +8,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PlayerTest {
 
     private Player player;
-    private Name name;
+    private PlayerName playerName;
     private Position position;
 
     @BeforeEach
     public void setUp() {
-        name = new Name("Test");
+        playerName = new PlayerName("Test");
         position = new Position(0);
-        player = new Player(name, position);
+        player = new Player(playerName, position);
     }
 
     @Test
     public void 플레이어는_정상적으로_생성된다() {
-        assertThat(player.getName()).isEqualTo("Test");
+        assertThat(player.getPlayerName()).isEqualTo("Test");
         assertThat(player.getPosition()).isEqualTo(0);
     }
 

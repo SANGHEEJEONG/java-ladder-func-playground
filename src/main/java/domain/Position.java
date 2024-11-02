@@ -19,5 +19,4 @@ public class Position {
     public int getPosition() {
         return position;
     }
-
 }

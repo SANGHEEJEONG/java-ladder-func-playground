@@ -24,7 +24,7 @@ public class Players {
     private List<Player> createPlayer(List<String> playerNames) {
         List<Player> players = new ArrayList<>();
         for (int i = 0; i < playerNames.size(); i++) {
-            players.add(new Player(new Name(playerNames.get(i)), new Position(i)));
+            players.add(new Player(new PlayerName(playerNames.get(i)), new Position(i)));
         }
 
         return players;
@@ -32,7 +32,7 @@ public class Players {
 
     public Player findByName(String viewerName) {
         return players.stream()
-                .filter(player -> player.getName().equals(viewerName))
+                .filter(player -> player.getPlayerName().equals(viewerName))
                 .findFirst()
                 .orElseThrow(() -> new NoSuchElementException("플레이어 이름 '" + viewerName + "' 이 존재하지 않습니다."));
     }

@@ -16,8 +16,8 @@ public class PlayersTest {
         Players players = new Players(playerNames);
 
         assertThat(players.getPlayersSize()).isEqualTo(2);
-        assertThat(players.getPlayers().get(0).getName()).isEqualTo("Test1");
-        assertThat(players.getPlayers().get(1).getName()).isEqualTo("Test2");
+        assertThat(players.getPlayers().get(0).getPlayerName()).isEqualTo("Test1");
+        assertThat(players.getPlayers().get(1).getPlayerName()).isEqualTo("Test2");
     }
 
     @Test
@@ -45,6 +45,6 @@ public class PlayersTest {
         Players players = new Players(playerNames);
 
         Player foundPlayer = players.findByName("Test");
-        assertThat(foundPlayer.getName()).isEqualTo("Test");
+        assertThat(foundPlayer.getPlayerName()).isEqualTo("Test");
     }
 }

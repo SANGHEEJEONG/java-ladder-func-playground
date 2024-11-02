@@ -1,12 +1,12 @@
 package domain;
 
-public class Name {
+public class PlayerName {
 
     private final String name;
     private final static int MAX_LENGTH = 5;
     private final static String INVALID_NAME = "all";
 
-    public Name(String name) {
+    public PlayerName(String name) {
         validateName(name);
         this.name = name;
     }

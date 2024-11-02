@@ -2,11 +2,11 @@ package domain;
 
 public class Player {
 
-    private final Name name;
+    private final PlayerName playerName;
     private final Position position;
 
-    public Player(Name name, Position position) {
-        this.name = name;
+    public Player(PlayerName name, Position position) {
+        this.playerName = name;
         this.position = position;
     }
 
@@ -18,8 +18,8 @@ public class Player {
         position.movePositionRight();
     }
 
-    public String getName() {
-        return name.getName();
+    public String getPlayerName() {
+        return playerName.getName();
     }
 
     public int getPosition() {

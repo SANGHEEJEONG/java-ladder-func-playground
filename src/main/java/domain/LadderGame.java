@@ -20,5 +20,4 @@ public class LadderGame {
     public void runGame(Ladder ladder, Players players) {
         players.getPlayers().forEach(player -> moveEachPlayer(ladder, player));
     }
-
 }

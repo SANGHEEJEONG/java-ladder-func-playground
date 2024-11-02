@@ -11,8 +11,8 @@ public class LadderGenerator {
         return Math.random() < 0.5;         // 0.0(포함) - 1.0(미포함) 사이의 랜덤한 실수 반환
     }
 
-    public boolean createValue(List<Boolean> line, int index) {
-        if (index != 0 && line.get(index - 1) == TRUE)    // 이전 값이 true 면 false 반환
+    public boolean createValue(List<Boolean> line, int lineIndex) {
+        if (lineIndex != 0 && line.get(lineIndex - 1) == TRUE)    // 이전 값이 true 면 false 반환
             return false;
 
         return randomTrueOrFalse();

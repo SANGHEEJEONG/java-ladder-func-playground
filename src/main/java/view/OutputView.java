@@ -4,7 +4,6 @@ import domain.Ladder;
 import domain.Line;
 import domain.Player;
 import domain.Players;
-import domain.ResultTypes;
 
 import java.util.List;
 
@@ -44,7 +43,7 @@ public class OutputView {
 
     public static void printAllResult(Players players, List<String> resultTypes) {
         for (Player player : players.getPlayers()) {
-            System.out.println(player.getName() + " : " + resultTypes.get(player.getPosition()));
+            System.out.println(player.getPlayerName() + " : " + resultTypes.get(player.getPosition()));
         }
     }
 
@@ -62,5 +61,4 @@ public class OutputView {
         Player player = players.findByName(viewerName);
         System.out.println(resultTypes.get(player.getPosition()));
     }
-
 }
