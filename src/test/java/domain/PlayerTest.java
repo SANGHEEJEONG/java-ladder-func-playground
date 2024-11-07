@@ -23,17 +23,4 @@ public class PlayerTest {
         assertThat(player.getPlayerName()).isEqualTo("Test");
         assertThat(player.getPosition()).isEqualTo(0);
     }
-
-    @Test
-    public void 플레이어는_왼쪽으로_이동할_수_있다() {
-        position.movePositionRight(); // 오른쪽으로 이동
-        player.moveLeft(); // 왼쪽으로 이동
-        assertThat(player.getPosition()).isEqualTo(0);
-    }
-
-    @Test
-    public void 플레이어는_오른쪽으로_이동할_수_있다() {
-        player.moveRight();
-        assertThat(player.getPosition()).isEqualTo(1);
-    }
 }

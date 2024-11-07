@@ -1,7 +1,6 @@
 package controller;
 
 import domain.Ladder;
-import domain.LadderGame;
 import domain.LadderGenerator;
 import domain.Players;
 import domain.ResultTypes;
@@ -45,8 +44,7 @@ public class LadderController {
     }
 
     private void playGameAndDisplayResults(ResultTypes resultTypes) {
-        LadderGame ladderGame = new LadderGame();
-        ladderGame.runGame(ladder, players);
+        players.moveAllPlayers(ladder);
         OutputView.printResult(players, resultTypes.getResultTypes());
     }
 }

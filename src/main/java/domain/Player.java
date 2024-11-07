@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.List;
+
 public class Player {
 
     private final PlayerName playerName;
@@ -10,12 +12,8 @@ public class Player {
         this.position = position;
     }
 
-    public void moveLeft() {
-        position.movePositionLeft();
-    }
-
-    public void moveRight() {
-        position.movePositionRight();
+    public void moveAlongLadder(List<Line> ladder) {
+        ladder.forEach(this.position::moveAlongLine);
     }
 
     public String getPlayerName() {

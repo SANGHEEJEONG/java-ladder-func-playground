@@ -8,11 +8,22 @@ public class Position {
         this.position = position;
     }
 
-    public void movePositionLeft() {
+    public void moveAlongLine(Line line) {
+        if (line.canMoveRight(position)){
+            moveRight();
+            return;
+        }
+
+        if (line.canMoveLeft(position)) {
+            moveLeft();
+        }
+    }
+
+    public void moveLeft() {
         position--;
     }
 
-    public void movePositionRight() {
+    public void moveRight() {
         position++;
     }
 
