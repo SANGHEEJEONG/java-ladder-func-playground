@@ -13,7 +13,7 @@ public class Player {
     }
 
     public void moveAlongLadder(List<Line> ladder) {
-        ladder.forEach(this.position::moveAlongLine);
+        ladder.forEach(this.position::decideWhereToGo);
     }
 
     public String getPlayerName() {

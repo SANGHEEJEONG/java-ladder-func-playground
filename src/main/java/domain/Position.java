@@ -8,7 +8,7 @@ public class Position {
         this.position = position;
     }
 
-    public void moveAlongLine(Line line) {
+    public void decideWhereToGo(Line line) {
         if (line.canMoveRight(position)){
             moveRight();
             return;
