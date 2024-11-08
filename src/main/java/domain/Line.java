@@ -21,4 +21,8 @@ public class Line {
     public List<Point> getLine() {
         return Collections.unmodifiableList(points);
     }
+
+    public int getSize() {
+        return points.size();
+    }
 }

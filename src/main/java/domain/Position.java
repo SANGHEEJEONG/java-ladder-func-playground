@@ -9,8 +9,8 @@ public class Position {
     }
 
     public void decideWhereToGo(Line line) {
-        if (line.canMoveRight(position)){
-            moveRight();
+        if (line.canMoveRight(position)) {
+            moveRight(line.getSize());
             return;
         }
 
@@ -20,11 +20,15 @@ public class Position {
     }
 
     public void moveLeft() {
-        position--;
+        if (position != 0) {
+            position--;
+        }
     }
 
-    public void moveRight() {
-        position++;
+    public void moveRight(int maxPosition) {
+        if (position != maxPosition) {
+            position++;
+        }
     }
 
     public int getPosition() {
