@@ -3,24 +3,22 @@ package domain;
 import java.util.Collections;
 import java.util.List;
 
-import static java.lang.Boolean.TRUE;
-
 public class Line {
-    private final List<Boolean> points;
+    private final List<Point> points;
 
-    public Line(List<Boolean> points) {
+    public Line(List<Point> points) {
         this.points = points;
     }
 
     public boolean canMoveRight(int ladderOrder) {
-        return (ladderOrder < points.size()) && (points.get(ladderOrder) == TRUE);
+        return (ladderOrder < points.size()) && (points.get(ladderOrder).isEnabled());
     }
 
     public boolean canMoveLeft(int ladderOrder) {
-        return (ladderOrder != 0) && (points.get(ladderOrder - 1) == TRUE);
+        return (ladderOrder != 0) && (points.get(ladderOrder - 1).isEnabled());
     }
 
-    public List<Boolean> getLine() {
+    public List<Point> getLine() {
         return Collections.unmodifiableList(points);
     }
 }

@@ -20,7 +20,7 @@ public class LadderGeneratorTest {
         Line line = ladderGenerator.createLine(width);
 
         assertThat(line.getLine()).hasSize(width - 1);
-        for (Boolean point : line.getLine()) {
+        for (Point point : line.getLine()) {
             assertThat(point).isNotNull();
         }
     }

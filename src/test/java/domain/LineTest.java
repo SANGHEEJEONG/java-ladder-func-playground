@@ -13,7 +13,7 @@ public class LineTest {
 
     @BeforeEach
     public void setUp() {
-        line = new Line(List.of(true, false, true));
+        line = new Line(List.of(Point.ENABLED, Point.DISABLED, Point.ENABLED));
     }
 
     @Test

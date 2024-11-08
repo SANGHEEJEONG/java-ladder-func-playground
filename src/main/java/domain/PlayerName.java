@@ -25,13 +25,13 @@ public class PlayerName {
 
     private void validateMaxLength(String name) {
         if (name.length() > MAX_LENGTH) {
-            throw new IllegalArgumentException("이름은 5자를 초과할 수 없습니다.");
+            throw new IllegalArgumentException("이름은 " + MAX_LENGTH + "자를 초과할 수 없습니다.");
         }
     }
 
     private void validateNotEqualAll(String name) {
         if (name.equals(INVALID_NAME)) {
-            throw new IllegalArgumentException("이름은 all일 수 없습니다.");
+            throw new IllegalArgumentException("이름은 " + INVALID_NAME + "일 수 없습니다.");
         }
     }
 

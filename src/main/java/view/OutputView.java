@@ -4,10 +4,9 @@ import domain.Ladder;
 import domain.Line;
 import domain.Player;
 import domain.Players;
+import domain.Point;
 
 import java.util.List;
-
-import static java.lang.Boolean.TRUE;
 
 public class OutputView {
 
@@ -18,8 +17,8 @@ public class OutputView {
         System.out.println();
     }
 
-    private static String changeValueToView(Boolean point) {
-        if (point == TRUE)
+    private static String changeValueToView(Point point) {
+        if (point.isEnabled())
             return "-----";
 
         return "     ";
