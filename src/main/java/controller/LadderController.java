@@ -26,7 +26,7 @@ public class LadderController {
         initializeLadder();
 
         // 사다리 및 결과 출력
-        displayLadder(resultTypes,playerNames);
+        displayLadder(resultTypes, playerNames);
         playGameAndDisplayResults(resultTypes);
     }
 
@@ -37,7 +37,7 @@ public class LadderController {
         ladder = ladderGenerator.createLadder(width, height);
     }
 
-    private void displayLadder(ResultTypes resultTypes,List<String> playerNames) {
+    private void displayLadder(ResultTypes resultTypes, List<String> playerNames) {
         OutputView.printPlayers(playerNames);
         OutputView.drawLadder(ladder);
         OutputView.printResultTypes(resultTypes.getResultTypes());
