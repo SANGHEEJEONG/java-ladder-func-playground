@@ -1,7 +1,6 @@
 package controller;
 
 import domain.Ladder;
-import domain.LadderGenerator;
 import domain.Players;
 import domain.ResultTypes;
 import view.InputView;
@@ -12,39 +11,49 @@ import java.util.List;
 public class LadderController {
 
     public void run() {
+        Players players = initializePlayers();
+        ResultTypes resultTypes = initializeResults(players.getPlayersSize());
+        Ladder ladder = initializeLadder(players.getPlayersSize());
+
+        playGame(players, ladder);
+
+        displayAllOutput(players, resultTypes, ladder);
+    }
+
+    private Players initializePlayers() {
         List<String> playerNames = InputView.splitString(InputView.inputNames());
+
+        return new Players(playerNames);
+    }
+
+    private ResultTypes initializeResults(int resultsSize) {
         List<String> kindOfResults = InputView.splitString(InputView.inputLadderResults());
 
-        // 플레이어 생성
-        Players players = new Players(playerNames);
-        // 결과 종류 생성
-        ResultTypes resultTypes = new ResultTypes(kindOfResults, players.getPlayersSize());
-        // 사다리 초기화
-        Ladder ladder = initializeLadder(players);
-
-        // 사다리 및 결과 출력
-        displayLadder(resultTypes, playerNames, ladder);
-        playGameAndDisplayResults(resultTypes, players, ladder);
+        return new ResultTypes(kindOfResults, resultsSize);
     }
 
-    private Ladder initializeLadder(Players players) {
-        int width = players.getPlayersSize();
+    private Ladder initializeLadder(int width) {
         int height = InputView.inputHeight();
 
-        LadderGenerator ladderGenerator = new LadderGenerator();
-        Ladder ladder = ladderGenerator.createLadder(width, height);
-
-        return ladder;
+        return new Ladder(width, height);
     }
 
-    private void displayLadder(ResultTypes resultTypes, List<String> playerNames, Ladder ladder) {
-        OutputView.printPlayers(playerNames);
+    private void playGame(Players players, Ladder ladder) {
+        players.moveAllPlayers(ladder);
+    }
+
+    public void displayAllOutput(Players players, ResultTypes resultTypes, Ladder ladder){
+        displayLadder(players, resultTypes, ladder);
+        displayResults(resultTypes, players);
+    }
+
+    private void displayLadder(Players players, ResultTypes resultTypes, Ladder ladder) {
+        OutputView.printPlayers(players);
         OutputView.drawLadder(ladder);
         OutputView.printResultTypes(resultTypes.getResultTypes());
     }
 
-    private void playGameAndDisplayResults(ResultTypes resultTypes, Players players, Ladder ladder) {
-        players.moveAllPlayers(ladder);
+    private void displayResults(ResultTypes resultTypes, Players players) {
         OutputView.printResult(players, resultTypes.getResultTypes());
     }
 }

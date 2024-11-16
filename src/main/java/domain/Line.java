@@ -1,13 +1,21 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Line {
     private final List<Point> points;
 
-    public Line(List<Point> points) {
-        this.points = points;
+    public Line(int width) {
+        this.points = new ArrayList<>();
+        createLine(width);
+    }
+
+    public void createLine(int width) {
+        for (int i = 0; i < width - 1; i++) {
+            points.add(Point.createPoint(points, i));
+        }
     }
 
     public boolean canMoveRight(int ladderOrder) {

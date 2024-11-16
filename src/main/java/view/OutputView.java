@@ -11,9 +11,9 @@ import java.util.List;
 public class OutputView {
 
     // 플레이어 이름 출력
-    public static void printPlayers(List<String> names) {
+    public static void printPlayers(Players players) {
         System.out.println("\n사다리 결과\n");
-        names.forEach(System.out::print);
+        players.getPlayers().forEach(Player::getPlayerName);
         System.out.println();
     }
 
