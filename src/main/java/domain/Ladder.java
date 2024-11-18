@@ -19,6 +19,10 @@ public class Ladder {
         }
     }
 
+    public void determineLadderResults(Players players) {
+        players.getPlayers().forEach(player -> player.moveAlongLadder(lines));
+    }
+
     public List<Line> getLadder() {
         return Collections.unmodifiableList(lines);
     }

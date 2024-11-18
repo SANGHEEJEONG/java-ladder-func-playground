@@ -30,10 +30,6 @@ public class Players {
         return players;
     }
 
-    public void moveAllPlayers(Ladder ladder) {
-        players.forEach(player -> player.moveAlongLadder(ladder.getLadder()));
-    }
-
     public Player findByName(String viewerName) {
         return players.stream()
                 .filter(player -> player.getPlayerName().equals(viewerName))

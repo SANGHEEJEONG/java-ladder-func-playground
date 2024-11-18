@@ -29,7 +29,7 @@ public class LadderController {
     }
 
     public void playGame(Players players, Ladder ladder) {
-        players.moveAllPlayers(ladder);
+        ladder.determineLadderResults(players);
     }
 
     public void displayAllOutput(Players players, ResultTypes resultTypes, Ladder ladder){
