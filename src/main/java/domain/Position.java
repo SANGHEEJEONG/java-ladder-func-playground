@@ -8,17 +8,6 @@ public class Position {
         this.position = position;
     }
 
-    public void decideWhereToGo(Line line) {
-        if (line.canMoveRight(position)) {
-            moveRight(line.getSize());
-            return;
-        }
-
-        if (line.canMoveLeft(position)) {
-            moveLeft();
-        }
-    }
-
     public void moveLeft() {
         if (position == 0){
             throw new IllegalStateException("가장 왼쪽 사다리이므로 왼쪽으로 이동이 불가합니다.");

@@ -18,19 +18,20 @@ public class Line {
         }
     }
 
-    public boolean canMoveRight(int ladderOrder) {
-        return (ladderOrder < points.size()) && (points.get(ladderOrder).isEnabled());
-    }
+    public void decideWhereToGo(Position position) {
+        int ladderOrder = position.getPosition();
 
-    public boolean canMoveLeft(int ladderOrder) {
-        return (ladderOrder != 0) && (points.get(ladderOrder - 1).isEnabled());
+        if ((ladderOrder < points.size()) && (points.get(ladderOrder).isEnabled())) {
+            position.moveRight(points.size());
+            return;
+        }
+
+        if ((ladderOrder != 0) && (points.get(ladderOrder - 1).isEnabled())) {
+            position.moveLeft();
+        }
     }
 
     public List<Point> getLine() {
         return Collections.unmodifiableList(points);
-    }
-
-    public int getSize() {
-        return points.size();
     }
 }
