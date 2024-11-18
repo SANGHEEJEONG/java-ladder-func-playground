@@ -1,10 +1,10 @@
 package view;
 
 import domain.Ladder;
+import domain.LadderStep;
 import domain.Line;
 import domain.Player;
 import domain.Players;
-import domain.Point;
 
 import java.util.List;
 
@@ -17,15 +17,15 @@ public class OutputView {
         System.out.println();
     }
 
-    private static String changeValueToView(Point point) {
-        if (point.isEnabled())
+    private static String changeValueToView(LadderStep ladderStep) {
+        if (ladderStep.canMove())
             return "-----";
 
         return "     ";
     }
 
     private static void drawLine(Line line) {
-        line.getLine().forEach(point -> System.out.print("|" + changeValueToView(point)));
+        line.getLine().forEach(ladderStep -> System.out.print("|" + changeValueToView(ladderStep)));
         System.out.println("|");
     }
 
