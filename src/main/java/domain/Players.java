@@ -2,8 +2,10 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 public class Players {
 
@@ -12,12 +14,21 @@ public class Players {
 
     public Players(List<String> playerNames) {
         validateSize(playerNames);
+        validateDuplicateName(playerNames);
         this.players = createPlayer(playerNames);
     }
 
     private void validateSize(List<String> playerNames) {
         if (playerNames.size() < MIN_PLAYER_SIZE) {
             throw new IllegalArgumentException("플레이어 수는 2명 이상이어야 합니다.");
+        }
+    }
+
+    private void validateDuplicateName(List<String> playerNames) {
+        Set<String> playerNamesSet = new HashSet<>(playerNames);
+
+        if (playerNames.size() != playerNamesSet.size()) {
+            throw new IllegalArgumentException("동명이인인 플레이어가 존재합니다.");
         }
     }
 
