@@ -18,7 +18,7 @@ public class Line {
         ladderSteps.add(LadderStep.FROM_BOOLEAN.apply(randomTrueOrFalse()));
 
         for (int i = 1; i < width - 1; i++) {
-            ladderSteps.add(ladderSteps.get(i - 1).nextStep(ladderSteps, i));
+            ladderSteps.add(ladderSteps.get(i - 1).nextStep());
         }
     }
 

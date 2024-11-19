@@ -1,6 +1,5 @@
 package domain;
 
-import java.util.List;
 import java.util.function.Function;
 
 public enum LadderStep {
@@ -11,7 +10,7 @@ public enum LadderStep {
         }
 
         @Override
-        public LadderStep nextStep(List<LadderStep> line, int lineIndex) {
+        public LadderStep nextStep() {
             return NOT_CONNECTED;
         }
     },
@@ -22,13 +21,13 @@ public enum LadderStep {
         }
 
         @Override
-        public LadderStep nextStep(List<LadderStep> line, int lineIndex) {
+        public LadderStep nextStep() {
             return FROM_BOOLEAN.apply(randomTrueOrFalse());
         }
     };
 
     public abstract boolean canMove();
-    public abstract LadderStep nextStep(List<LadderStep> line, int lineIndex);
+    public abstract LadderStep nextStep();
 
     public static final Function<Boolean, LadderStep> FROM_BOOLEAN = value -> {
         if (value) {
