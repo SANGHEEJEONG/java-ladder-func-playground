@@ -42,8 +42,10 @@ public class Players {
     }
 
     public Player findByName(String viewerName) {
+        PlayerName playerName = new PlayerName(viewerName);
+        
         return players.stream()
-                .filter(player -> player.getPlayerName().equals(viewerName))
+                .filter(player -> player.getPlayerName().equals(playerName))
                 .findFirst()
                 .orElseThrow(() -> new NoSuchElementException("플레이어 이름 '" + viewerName + "' 이 존재하지 않습니다."));
     }

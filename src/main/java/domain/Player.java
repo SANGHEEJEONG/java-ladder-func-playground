@@ -16,7 +16,7 @@ public class Player {
         ladder.forEach(line -> line.decideWhereToGo(this.position));
     }
 
-    public String getPlayerName() {
+    public PlayerName getPlayerName() {
         return playerName.getName();
     }
 

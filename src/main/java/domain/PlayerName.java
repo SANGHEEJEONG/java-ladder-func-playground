@@ -35,7 +35,25 @@ public class PlayerName {
         }
     }
 
-    public String getName() {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true; // 메모리 주소 비교
+        if (o == null || getClass() != o.getClass()) return false;
+        PlayerName that = (PlayerName) o;
+        return name.equals(that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
+
+    @Override
+    public String toString() {
         return name;
+    }
+
+    public PlayerName getName() {
+        return this;
     }
 }
