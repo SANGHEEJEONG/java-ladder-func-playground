@@ -10,13 +10,13 @@ public class PlayerNameTest {
     @Test
     public void 유효한_이름으로_생성된다() {
         PlayerName name = new PlayerName("Test");
-        assertThat(name.getName()).isEqualTo("Test");
+        assertThat(name.toString()).isEqualTo("Test");
     }
 
     @Test
     public void 이름이_공백이면_예외를_던진다() {
         assertThatExceptionOfType(IllegalArgumentException.class)
-                .isThrownBy(() -> new PlayerName(" "))
+                .isThrownBy(() -> new PlayerName("                       "))
                 .withMessage("이름은 공백일 수 없습니다.");
     }
 
@@ -37,6 +37,22 @@ public class PlayerNameTest {
     @Test
     public void 이름이_5자_이하의_경우_정상_생성된다() {
         PlayerName name = new PlayerName("Test");
-        assertThat(name.getName()).isEqualTo("Test");
+        assertThat(name.toString()).isEqualTo("Test");
+    }
+
+    @Test
+    public void 같은_이름은_같은_객체로_취급된다() {
+        PlayerName name1 = new PlayerName("Test");
+        PlayerName name2 = new PlayerName("Test");
+
+        assertThat(name1).isEqualTo(name2);
+    }
+
+    @Test
+    public void 다른_이름은_다른_객체로_취급된다() {
+        PlayerName name1 = new PlayerName("Test1");
+        PlayerName name2 = new PlayerName("Test2");
+
+        assertThat(name1).isNotEqualTo(name2);
     }
 }

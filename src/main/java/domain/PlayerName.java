@@ -12,8 +12,8 @@ public class PlayerName {
     }
 
     private void validateName(String name) {
-        validateMaxLength(name);
         validateNotBlank(name);
+        validateMaxLength(name);
         validateNotEqualAll(name);
     }
 

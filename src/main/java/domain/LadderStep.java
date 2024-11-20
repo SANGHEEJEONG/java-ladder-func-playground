@@ -36,7 +36,7 @@ public enum LadderStep {
         return NOT_CONNECTED;
     };
 
-    static boolean randomTrueOrFalse() {
+    public static boolean randomTrueOrFalse() {
         return Math.random() < 0.5;
     }
 }
