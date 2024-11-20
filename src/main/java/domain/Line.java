@@ -25,14 +25,22 @@ public class Line {
     public void decideWhereToGo(Position position) {
         int ladderOrder = position.getPosition();
 
-        if ((ladderOrder < ladderSteps.size()) && (ladderSteps.get(ladderOrder).canMove())) {
+        if (canMoveRight(ladderOrder)) {
             position.moveRight(ladderSteps.size());
             return;
         }
 
-        if ((ladderOrder != 0) && (ladderSteps.get(ladderOrder - 1).canMove())) {
+        if (canMoveLeft(ladderOrder)) {
             position.moveLeft();
         }
+    }
+
+    private boolean canMoveRight(int ladderOrder) {
+        return ladderOrder < ladderSteps.size() && ladderSteps.get(ladderOrder).canMove();
+    }
+
+    private boolean canMoveLeft(int ladderOrder) {
+        return ladderOrder != 0 && ladderSteps.get(ladderOrder - 1).canMove();
     }
 
     public List<LadderStep> getLine() {

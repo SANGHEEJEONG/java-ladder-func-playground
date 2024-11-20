@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class PlayersTest {
 
@@ -15,9 +16,11 @@ public class PlayersTest {
         List<String> playerNames = List.of("Test1", "Test2");
         Players players = new Players(playerNames);
 
-        assertThat(players.getPlayersSize()).isEqualTo(2);
-        assertThat(players.getPlayers().get(0).getPlayerName()).isEqualTo("Test1");
-        assertThat(players.getPlayers().get(1).getPlayerName()).isEqualTo("Test2");
+        assertAll(
+                () -> assertThat(players.getPlayersSize()).isEqualTo(2),
+                () -> assertThat(players.getPlayers().get(0).getPlayerName().toString()).isEqualTo("Test1"),
+                () -> assertThat(players.getPlayers().get(1).getPlayerName().toString()).isEqualTo("Test2")
+        );
     }
 
     @Test
@@ -41,10 +44,10 @@ public class PlayersTest {
 
     @Test
     public void 존재하는_플레이어를_정상적으로_찾는다() {
-        List<String> playerNames = List.of("Test", "Test");
+        List<String> playerNames = List.of("Test1", "Test2");
         Players players = new Players(playerNames);
 
-        Player foundPlayer = players.findByName("Test");
-        assertThat(foundPlayer.getPlayerName()).isEqualTo("Test");
+        Player foundPlayer = players.findByName("Test1");
+        assertThat(foundPlayer.getPlayerName().toString()).isEqualTo("Test1");
     }
 }
