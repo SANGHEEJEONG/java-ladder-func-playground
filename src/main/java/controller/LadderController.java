@@ -32,7 +32,7 @@ public class LadderController {
         ladder.determineLadderResults(players);
     }
 
-    public void displayAllOutput(Players players, ResultTypes resultTypes, Ladder ladder){
+    public void displayAllOutput(Players players, ResultTypes resultTypes, Ladder ladder) {
         displayLadder(players, resultTypes, ladder);
         displayResults(resultTypes, players);
     }

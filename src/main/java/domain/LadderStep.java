@@ -27,6 +27,7 @@ public enum LadderStep {
     };
 
     public abstract boolean canMove();
+
     public abstract LadderStep nextStep();
 
     public static final Function<Boolean, LadderStep> FROM_BOOLEAN = value -> {
